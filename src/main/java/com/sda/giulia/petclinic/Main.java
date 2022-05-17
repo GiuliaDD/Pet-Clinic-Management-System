@@ -1,7 +1,6 @@
 package com.sda.giulia.petclinic;
 
 import com.sda.giulia.petclinic.controller.VeterinarianController;
-import com.sda.giulia.petclinic.model.Veterinarian;
 import com.sda.giulia.petclinic.option.UserOption;
 import com.sda.giulia.petclinic.utils.SessionManager;
 
@@ -34,6 +33,9 @@ public class Main {
                    break;
                case DELETE_BY_ID:
                    veterinarianController.deleteById();
+                   break;
+               case UPDATE:
+                   veterinarianController.update();
                    break;
                case UNKNOWN:
                    break;
