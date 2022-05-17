@@ -8,4 +8,6 @@ public class VeterinarianRepositoryImpl extends BaseRepositoryImpl<Veterinarian,
     public VeterinarianRepositoryImpl() {
         super(Veterinarian.class);
     }
+
+
 }

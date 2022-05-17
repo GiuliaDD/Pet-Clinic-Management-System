@@ -3,7 +3,11 @@ package com.sda.giulia.petclinic.service;
 import com.sda.giulia.petclinic.model.Veterinarian;
 import com.sda.giulia.petclinic.repository.VeterinarianRepository;
 import com.sda.giulia.petclinic.repository.VeterinarianRepositoryImpl;
+import com.sda.giulia.petclinic.service.dto.VeterinarianDto;
+
 import java.security.InvalidParameterException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class VeterinarianServiceImpl implements VeterinarianService {
     private final VeterinarianRepository veterinarianRepository;
@@ -28,5 +32,21 @@ public class VeterinarianServiceImpl implements VeterinarianService {
         }
 
         veterinarianRepository.create(new Veterinarian(firstName, lastName, address, speciality));
+    }
+
+    @Override
+    public List<VeterinarianDto> findAll() {
+        return veterinarianRepository.findAll()
+                .stream()
+                .map(veterinarian ->
+                        new VeterinarianDto(
+                                veterinarian.getId(),
+                                veterinarian.getFirstName(),
+                                veterinarian.getLastName(),
+                                veterinarian.getAddress(),
+                                veterinarian.getSpeciality()
+                        )
+                )
+                .collect(Collectors.toList());
     }
 }
