@@ -1,6 +1,7 @@
 package com.sda.giulia.petclinic;
 
 import com.sda.giulia.petclinic.controller.VeterinarianController;
+import com.sda.giulia.petclinic.model.Veterinarian;
 import com.sda.giulia.petclinic.option.UserOption;
 import com.sda.giulia.petclinic.utils.SessionManager;
 
@@ -27,6 +28,9 @@ public class Main {
            switch (option){
                case ADD_NEW_VET:
                    veterinarianController.create();
+                   break;
+               case SHOW_ALL:
+                   veterinarianController.showAllVeterinarians();
                    break;
                case UNKNOWN:
                    break;

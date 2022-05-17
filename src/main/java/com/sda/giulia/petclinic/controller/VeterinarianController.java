@@ -1,10 +1,14 @@
 package com.sda.giulia.petclinic.controller;
 
+import com.sda.giulia.petclinic.model.Veterinarian;
 import com.sda.giulia.petclinic.service.VeterinarianService;
 import com.sda.giulia.petclinic.service.VeterinarianServiceImpl;
+import com.sda.giulia.petclinic.service.dto.VeterinarianDto;
 
 import java.security.InvalidParameterException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class VeterinarianController {
 
@@ -31,10 +35,27 @@ public class VeterinarianController {
             System.out.println("The veterinarian " + firstName + " was created.");
         } catch (InvalidParameterException e) {
             System.out.println(e.getMessage());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("The veterinarian was not created, internal server error.");
         }
     }
 
+    public void showAllVeterinarians() {
+        List<VeterinarianDto> veterinariansDto = veterinarianService.findAll();
+        if(veterinariansDto.isEmpty()){
+            System.out.println("No veterinarians");
+            return;
+        }
+        veterinariansDto.stream()
+                .forEach(veterinarianDto ->
+                        System.out.println(
+                                "\n ID: " + veterinarianDto.getId() +
+                                "\n  First Name: " + veterinarianDto.getFirstName() +
+                                "\n  Last Name: " + veterinarianDto.getLastName() +
+                                "\n  Address: " + veterinarianDto.getAddress() +
+                                "\n  Speciality: " + veterinarianDto.getSpeciality()
+                        )
+                );
+    }
 
 }
