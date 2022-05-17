@@ -1,6 +1,5 @@
 package com.sda.giulia.petclinic.controller;
 
-import com.sda.giulia.petclinic.model.Veterinarian;
 import com.sda.giulia.petclinic.service.VeterinarianService;
 import com.sda.giulia.petclinic.service.VeterinarianServiceImpl;
 import com.sda.giulia.petclinic.service.dto.VeterinarianDto;
@@ -58,4 +57,15 @@ public class VeterinarianController {
                 );
     }
 
+    public void deleteById(){
+        try{
+            System.out.println("Please insert the veterinarian id: ");
+            String idString = scanner.nextLine();
+            Long id = Long.parseLong(idString);
+            veterinarianService.deleteById(id);
+            System.out.println("Vet was successfully deleted.");
+        } catch (NumberFormatException e){
+            System.out.println("Invalid parameter.");
+        }
+    }
 }
