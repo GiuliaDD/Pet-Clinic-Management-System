@@ -1,5 +1,6 @@
 package com.sda.giulia.petclinic;
 
+import com.sda.giulia.petclinic.controller.PetController;
 import com.sda.giulia.petclinic.controller.VeterinarianController;
 import com.sda.giulia.petclinic.option.UserOption;
 import com.sda.giulia.petclinic.utils.SessionManager;
@@ -10,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         SessionManager.getSessionFactory();
         VeterinarianController veterinarianController = new VeterinarianController();
+        PetController petController = new PetController();
         Scanner scanner = new Scanner(System.in);
 
         UserOption option = UserOption.UNKNOWN;
@@ -37,6 +39,8 @@ public class Main {
                case UPDATE:
                    veterinarianController.update();
                    break;
+               case ADD_NEW_PET:
+                   petController.addPet();
                case UNKNOWN:
                    break;
                case EXIT:

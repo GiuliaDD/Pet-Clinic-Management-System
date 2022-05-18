@@ -13,14 +13,17 @@ As a user of the system I should be able to update an existing veterinarian by i
 ---
 
 PCMS-5
-As a user of the system I should be able to add a new pet. I should be able to specify: race, birthdate, isVaccinated, ownerName.
+As a user of the system I should be able to add a new pet. I should be able to specify: race, birthdate, isVaccinated, ownerFirstName, ownerLastName.
 
+Homework
 PCMS-6
 As a user of the system I should be able to view all the pets. I should be able to see for each pet: id, race, birthdate, isVaccinated, ownerName.
 
+Homework
 PCMS-7
 As a user of the system I should be able to delete an existing pet by id.
 
+Homework
 PCMS-8
 As a user of the system I should be able to update an existing pet by id. I should be able to update: race, birthdate, isVaccinated, ownerName.
 
