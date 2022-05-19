@@ -18,7 +18,7 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public List<Pet> findPetsForClientId(Long clientId) {
-        Optional<Client> client = clientRepository.findById(clientId);
+        Optional<Client> client = clientRepository.findByClientId(clientId);
         if(client.isPresent()){
             return client.get().getPets();
         }

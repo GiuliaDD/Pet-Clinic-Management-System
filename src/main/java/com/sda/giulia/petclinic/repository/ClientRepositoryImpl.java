@@ -25,14 +25,29 @@ public class ClientRepositoryImpl extends BaseRepositoryImpl<Client, Long> imple
             session.close();
             //return clients.stream().findAny();
 
-            if(clients.isEmpty()){
+            if (clients.isEmpty()) {
                 return Optional.empty();
             }
-                return Optional.of(clients.get(0));
+            return Optional.of(clients.get(0));
 
         } catch (Exception e) {
             e.printStackTrace();
             return Optional.empty();
         }
+    }
+
+    @Override
+    public Optional<Client> findByAndLoadPets(Long id) {
+        try {
+            Session session = SessionManager.getSessionFactory().openSession();
+            Client client = session.find(Client.class, id);
+            System.out.println(client.getPets().size());
+            session.close();
+            return Optional.of(client);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Optional.empty();
+        }
+
     }
 }

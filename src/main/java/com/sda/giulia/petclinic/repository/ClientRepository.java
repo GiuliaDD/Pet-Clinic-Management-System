@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface ClientRepository extends BaseRepository<Client, Long> {
     Optional<Client> findByFirstNameAndLastName(String firstName, String lastName);
+    Optional<Client> findByAndLoadPets(Long id);
 }
 
 
