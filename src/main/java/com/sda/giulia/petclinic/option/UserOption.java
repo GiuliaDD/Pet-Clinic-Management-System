@@ -10,6 +10,7 @@ public enum UserOption {
     UPDATE("Update veterinarian by ID", 4),
     ADD_NEW_PET("Add new pet", 5),
     VIEW_ALL_VACCINATED("View all vaccinated pets", 6),
+    VIEW_ALL_PETS_FOR_CLIENT_ID("View all pets for client id", 7),
     EXIT("Exit", 999),
     UNKNOWN("Unknown option, try again", 1000);
 
