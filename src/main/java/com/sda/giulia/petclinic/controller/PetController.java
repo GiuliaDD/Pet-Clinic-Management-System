@@ -30,7 +30,7 @@ public class PetController {
             String dateInput = scanner.nextLine();
             Date birthDate = FORMATTER.parse(dateInput);
 
-            System.out.println("Please insert true of the pet is vaccinated or false otherwise: ");
+            System.out.println("Please insert true if the pet is vaccinated or false otherwise: ");
             boolean isVaccinatedState = Boolean.parseBoolean(scanner.nextLine());
 
             System.out.println("Please insert owner's first name: ");
@@ -50,5 +50,15 @@ public class PetController {
         } catch (Exception e) {
             System.out.println("The pet was not created, internal server error.");
         }
+    }
+
+    public void showAllVaccinated(){
+        petService.findAllVaccinated().stream()
+                .forEach(pet -> System.out.println(
+                                        "\n  Race: " + pet.getRace() +
+                                        "\n  Date of birth: " + FORMATTER.format(pet.getDateOfBirth()) +
+                                        "\n  Is vaccinated: " + (pet.getVaccinated()?"yes":"no")
+
+                        ));
     }
 }
